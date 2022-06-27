@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public interface Functor {
+public interface Functor <T,R>{
+    void compute(Integer element);
+    R getValue();
 }
