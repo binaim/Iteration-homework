@@ -1,3 +1,4 @@
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -49,7 +50,17 @@ public class Client {
 
         //3 selective Optional
         Integer sum3 = myVector.doAll(new SumFunctor(), new PredicateConditioner());
-        System.out.println("Internal Selective Optional:" + sum3);
+        System.out.println("The Internal Selective Optional:" + sum3);
+
+
+        //4 selective + Iterable
+        View v1 = new View(myVector, (x->x>2));
+        Integer sum4=0;
+
+        for (Integer element: myVector){
+            sum4 += element;
+        }
+        System.out.println("The selective + Iterable optional:" + sum4);
 
     }
 
